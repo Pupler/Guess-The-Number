@@ -7,20 +7,21 @@ int randomNumber() {
     mt19937 generate(rdNum());
     uniform_int_distribution<int> range(1, 100);
     int randomNum = range(generate);
-    return range(generate);
+    return randomNum;
 }
 
 int main() {
-    int number;
+    int inputNum;
     int randomNum = randomNumber();
 
     cout << "====GUESS THE FUCKING NUMBER====" << endl;
     cout << "\nI chose random number from 1 to 100. Try to guess it: ";
-    cin >> number;
+    cin >> inputNum;
 
-    if (number != randomNum) {
-        cout << "LOSER" << endl;
-        cout << "The number was: " << randomNum << endl;
+    if (inputNum > randomNum) {
+        cout << "LOSER! It's lower: ";
+    } if (inputNum < randomNum) {
+        cout << "LOSER! It's higher: ";
     } else {
         cout << "WINNER!" << endl;
     }
