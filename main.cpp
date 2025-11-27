@@ -11,6 +11,7 @@ int randomNumber() {
 }
 
 int main() {
+    bool guessed = false;
     int inputNum;
     int randomNum = randomNumber();
 
@@ -18,11 +19,18 @@ int main() {
     cout << "\nI chose random number from 1 to 100. Try to guess it: ";
     cin >> inputNum;
 
-    if (inputNum > randomNum) {
-        cout << "LOSER! It's lower: ";
-    } if (inputNum < randomNum) {
-        cout << "LOSER! It's higher: ";
-    } else {
-        cout << "WINNER!" << endl;
+    while (guessed == false) {
+        if (inputNum > randomNum) {
+            cout << "LOSER! It's lower: ";
+            cin >> inputNum;
+        } else if (inputNum < randomNum) {
+            cout << "LOSER! It's higher: ";
+            cin >> inputNum;
+        } else {
+            cout << "WINNER!" << endl;
+            guessed = true;
+        }
     }
+
+    return 0;
 }
